@@ -1,7 +1,7 @@
 module.exports = (app) ->
   
   app.get '/', (req, res) ->
-    res.render 'pages/menu', title: 'Express'
+    res.render 'pages/menu', title: 'Kokopelli'
     
   app.get '/menu', (req, res) ->
     res.render 'pages/menu', title: 'Kokopelli'
