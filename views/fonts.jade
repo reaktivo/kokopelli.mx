@@ -1,0 +1,27 @@
+script
+  WebFontConfig = {
+    google: { families: !{JSON.stringify(fonts)} },
+    listeners: [],
+    active: function() {
+      this.called_ready = true;
+      for(var i = 0; i < this.listeners.length; i++) {
+        this.listeners[i]();
+      }
+    },
+    ready: function(callback) {
+      if (this.called_ready) {
+        callback()
+      } else {
+        this.listeners.push(callback)
+      }
+    }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();

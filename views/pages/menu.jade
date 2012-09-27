@@ -1,0 +1,10 @@
+extends ../layout
+
+block content
+  .menu
+    each taco, id in tacos
+      .taco(style="background-image:url(/tacos/#{id}.png)")
+        .info(style=taco.style)
+          h2= taco.name
+          p.price $ #{taco.$}
+          p= taco.description

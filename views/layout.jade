@@ -1,0 +1,50 @@
+!!!
+include credits.txt
+html
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+    title= title
+    meta(name="viewport", content="width=device-width")
+    != css('style')
+    != js('vendor/modernizr-2.6.1.min')
+    include opengraph
+    include analytics
+    include fonts
+    block head
+  body
+
+    header
+      h1 Tacos Kokopelli
+      nav
+        ul
+          li: a(href="/about") Kokopelli
+          li: a(href="/menu") Menú
+          li: a(href="/location") Encuéntranos
+    #main
+      
+      block content
+      
+      footer.center-block
+        .left
+          .open
+            p 
+              | Abierto de Martes a Sábado
+              br
+              | 10:00AM a 4:20PM
+      
+          .location
+            p 
+              |Ave. Ocampo entre la 8va y 9na
+              br
+              |Tijuana, Baja California, México
+        .right
+          p Estamos en 
+            a(href="https://www.facebook.com/pages/Tacos-kokopelli/150243071740392") Facebook
+            | &nbsp;y&nbsp;
+            a(href="https://www.twitter.com/tkokopelli") Twitter
+          p 
+            a(href="/media") En los medios
+    
+    != js('app')
+    block scripts
