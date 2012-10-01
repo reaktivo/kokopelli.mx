@@ -2,7 +2,7 @@ black_harder:
   name: Black Harder
   description: Lomo de lenguado en salsas orientales
   $: 20.00 MN
-  style: "left:100px; top:470px; text-align:left"
+  style: "left:100px; top:90px; text-align:left; width:188px"
 rasta:
   name: Rasta
   description:
