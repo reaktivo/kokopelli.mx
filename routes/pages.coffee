@@ -43,7 +43,7 @@ module.exports = (app) ->
   sendMail = (to, from, html) ->
     params =
       to: to
-      from: 'info@kokopelli.mx'
+      from: from
       subject: 'Order de Kokopelli'
       html: html
     mailer.send params, (success, message) -> 
@@ -52,9 +52,8 @@ module.exports = (app) ->
   app.post '/events', (req, res) ->
     locals = buildLocals req.body
     app.render 'events/email', locals, (err, html) ->
-      sendMail 'm@reaktivo.com', 'info@kokopelli.mx', html
-      sendMail 'info@kokopelli.mx', locals.info.email, html
-      sendMail locals.info.email, 'info@kokopelli.mx', html
+      sendMail 'tacos@kokopelli.mx', locals.info.email, html
+      sendMail locals.info.email, 'tacos@kokopelli.mx', html
       res.redirect "/events"
     
     
