@@ -1,0 +1,166 @@
+extends ../layout
+
+block content
+  .center-block
+    #events
+      h1 Kokopelli en tu Evento
+    
+      form(action="/events", method="post")        
+        h3 Lo principal
+        each category in events.categories
+          h4= category.name
+          .items
+            each item in category.items
+              .item.control-group(data-name=item.name, data-price=item.price)
+                label= item.name
+                .right
+                  | $#{item.price} x&nbsp;
+                  input.amount(name="items[#{item.id}]", data-type=category.type, type="text", placeholder="0")
+                  | &nbsp;= $
+                  span.result 0
+                  
+        
+        .row.total-row
+          h2 Total
+          span.right
+            | $
+            span.total 0
+                   
+        h3 ¿Qué incluye?
+        p Incluye las siguientes salsas:
+        ul
+          li 
+            span.salsas 0
+            | ml – Cacahuate (Castigo Azteca)
+          li 
+            span.salsas 0
+            | ml – Robo de Dante (Semilla de Calabaza y Chile Serrano)
+          li 
+            span.salsas 0
+            | ml – Lágrimas de Lucifer (Habanero con Betabel)
+          li 
+            span.salsas 0
+            | ml – Mayonesa Chipotle
+          li 
+            span.salsas 0
+            | ml – Crema
+          li 
+            span.salsas 0
+            | ml – Cebollitas Curtidas
+        
+        h3 Ahora ocupamos tus datos, por favor.
+        
+        .wrapper
+          .col
+            .row
+              label Tu nombre
+              input(name="info[name]", type="text")          
+            .row
+              label Email
+              input(name="info[email]", type="email")
+            .row
+              label Fecha de Evento
+              input(name="info[datetime]", type="datetime")
+              
+          .col
+            .row
+              label Teléfono
+              input(name="info[tel1]", type="tel")
+            .row
+              label Teléfono Alternativo
+              input(name="info[tel2]", type="tel")
+
+        
+        .row
+          label Dirección de Evento
+          textarea(name="info[location]")
+          
+        .row
+          label ¿Nos ayudas a ubicarlo en el mapa?
+          input(type="hidden", name="info[geolocation]")
+          p.help Arrastra el marcador al lugar del evento.
+          #location-map
+          
+        .row
+          label Descripción del area donde se va a servir
+          textarea(name="info[description]")
+          
+        .row
+          label Comentarios Adicionales
+          textarea(name="info[comments]")
+          
+        .row
+          button(type="submit") Enviar
+                
+block scripts
+ 
+  script(src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCa655zR6bQ8AuxxaidvQQBOauUhTZ5Rx8&sensor=true")
+  != js('vendor/gmaps')
+  
+  :coffeescript
+    window.App or= {}
+    App.Events = 
+      
+      location: 
+        lat: 32.523775
+        lng: -117.030884
+      
+      init: ->
+      
+        $('input[type=datetime]').datetimepicker()
+        
+        $('form').submit (e) => do @submit
+                  
+        do @setupMap
+        
+        @el = '#events'
+        
+        $('.item .amount').on 'input keyup', (e) =>
+          input = $ e.currentTarget
+          item = input.closest '.item'
+          amount = parseInt input.val()
+          @updateItem(item, amount)
+          do @updateSalsas
+          do @updateTotal
+    
+      updateItem: (item, amount) ->
+        $result = $ '.result', item   
+        price = item.data 'price'
+        total = price * amount
+        total = 0 if isNaN total
+        $result.text total
+        
+      updateTotal: ->
+        total = 0
+        $('.result').each -> total += parseInt $(this).text()
+        $('.total').text total
+      
+      updateSalsas: (people) ->
+        salsas = $('.salsas', @el)
+        count = 0
+        $('input[data-type=food]').each -> 
+          val = parseInt $(this).val()
+          count += val unless isNaN val
+        salsas.text count * 5
+        
+      setupMap: ->
+        @locationMap = new GMaps
+          div: "#location-map"
+          lat: @location.lat
+          lng: @location.lng
+          
+        @marker = @locationMap.addMarker
+          lat: @location.lat
+          lng: @location.lng
+          draggable: true
+          dragend: (e) ->
+            geolocation = [e.latLng.lat(), e.latLng.lng()].join(",")
+            $("input[name=geolocation]").val(geolocation)
+        
+        
+      submit: ->
+        pos = @marker.getPosition()
+        console.log pos.lat(), pos.lng()
+        
+    
+    do App.Events.init

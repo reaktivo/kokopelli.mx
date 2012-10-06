@@ -10,44 +10,16 @@ borderStyle = 1px solid lighten(mainColor, 60%)
 
 body
   color mainColor
-  background lightColor
+  background lightColor url(../img/dust.png)
   font-family Arvo, sans-serif
   
 a
   color mainColor
   text-decoration none
 
-.tacos
-  position fixed
-  height 400px
-  top 0
-  left 0
-  right 0
-  z-index -2
-  div
-    position absolute
-    top 0
-    bottom 0
-    left 0
-    right 0
-    background-size cover
-    background-position center center
-    -webkit-background-size cover
-    -moz-background-size cover
-    -o-background-size cover
-    -webkit-transition opacity 1s ease-in-out
-    -moz-transition opacity 1s ease-in-out
-    -o-transition opacity 1s ease-in-out
-    transition opacity 1s ease-in-out
-    opacity 0.01
-    &.active
-      opacity 0.99
-
 .center-block
   width 640px
   margin 0 auto
-  
-  
 
 header
   // taken from http://www.nal.usda.gov/awic/images/octopus.gif
@@ -86,40 +58,10 @@ header
             background altColor2
          &:last-child a
             border-right borderStyle
-
-.menu
-  background #eee       
-  padding-bottom 200px
   
-  .taco
-    height 600px
-    width 800px
-    overflow hidden
-    margin 0 auto -120px
-    clear both
-    position relative
-    background-repeat no-repeat
-    background-position center center
-  .info
-    position absolute
-    h2, p
-      margin 0
-    .price
-      font-size 13px
-      color altColor2
-
-#map
-  margin 40px auto
-  display block
-  width 640px
-  padding 5px
-  background #fff
-	border 1px solid red
-	-webkit-box-shadow 1px 1px 5px rgba(0,0,0,0.5)
-	-moz-box-shadow 1px 1px 5px rgba(0,0,0,0.5)
-  box-shadow 1px 1px 5px rgba(0,0,0,0.5)
 
 footer
+  padding 40px 0
   a
     border-bottom 1px solid mainColor
   overflow hidden
@@ -128,3 +70,8 @@ footer
   .right
     float right
     text-align right
+    
+    
+@import menu
+@import location
+@import events

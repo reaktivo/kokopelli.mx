@@ -11,6 +11,7 @@ html
     include opengraph
     include analytics
     include fonts
+    != css('vendor/jquery-ui-1.8.24.custom.css')
     block head
   body
     
@@ -21,6 +22,7 @@ html
           li: a(href="/about") Kokopelli
           li: a(href="/menu") Menú
           li: a(href="/location") Encuéntranos
+          li: a(href="/events") Eventos
     #main
       
       block content

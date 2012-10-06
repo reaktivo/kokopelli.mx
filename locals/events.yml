@@ -1,0 +1,58 @@
+min_units: 60
+people: 
+  values: [10, 15, 20, 25, 30, 35, 40]
+  default: 20
+location:
+  - name: Tijuana
+    price: 0
+  - name: Rosarito
+    price: 250
+  - name: Ensenada
+    price: 0
+  - name: San Diego
+    price: 400
+  
+categories:
+  - name: Tacos
+    type: food
+    items:
+    - name: Taco de Portobello
+      id: portobello
+      price: 25.00
+    - name: Taco de Camarón Chimichurri (Rasta)
+      id: rasta
+      price: 30.00
+    - name: Taco de Camarones en Adobo (Gringo)
+      id: gringo
+      price: 30.00
+    - name: Taco de Marlin Pibil
+      id: marlin_pibil
+      price: 30.00
+    - name: Taco de Marlin Poblano
+      id: marlin_poblano
+      price: 30.00
+    - name: Taco de Pulpo (Kraken)
+      id: kraken
+      price: 30.00
+    - name: Taco Especial (Chile California para rellenar)
+      id: especial
+      price: 5.00
+  - name: Ceviches
+    type: food
+    items: 
+    - name: Ceviche Sunlime (Maracuya)
+      id: sunlime
+      price: 30.00
+    - name: Ceviche Black Harder (Lenguado)
+      id: black_harder
+      price: 30.00
+  - name: Aguas
+    type: drink
+    items: 
+      - name: Pepino con Hierbabuena
+        id: agua_pepino
+        price: 10.00
+      - name: Jamaica
+        id: agua_jamaica
+        price: 10.00    
+    

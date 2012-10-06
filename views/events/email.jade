@@ -1,0 +1,30 @@
+div(style="font-family:sans-serif")
+
+  h4 Datos de solicitante:
+  p
+    | Nombre: #{info.name}
+    br
+    | Email: #{info.email}
+    br
+    | Fecha de Evento: #{info.datetime}
+    br
+    | Teléfono 1: #{info.tel1}
+    br
+    | Teléfono 2: #{info.tel2}
+
+  h4 Localización
+  p 
+    = info.location
+    a(href="http://maps.google.com/maps?z=18&q=#{info.geolocation}") Ver en Mapa
+
+  h4 Descripción de lugar
+  p= info.description
+
+  h4 Comentarios
+  p #{info.comments}
+
+  h4 Orden
+  each item, id in items
+    if item.amount > 0
+      p #{item.name}: #{item.amount} x $#{item.price} = $#{item.total}
+  p: strong Total = $#{total}
