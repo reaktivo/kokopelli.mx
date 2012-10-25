@@ -14,7 +14,6 @@ block content
               .item.control-group(data-name=item.name, data-price=item.price)
                 label= item.name
                 .right
-                  | $#{item.price} x&nbsp;
                   input.amount(name="items[#{item.id}]", data-type=category.type, type="text", placeholder="0")
                   | &nbsp;= $
                   span.result 0
