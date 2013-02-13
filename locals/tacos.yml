@@ -5,9 +5,9 @@ black_harder:
   style: "left:100px; top:90px; text-align:left; width:188px"
 rasta:
   name: Rasta
-  description:
+  description: Camaron marinado en chimichurri, con pimientos de colores y aceituna negra
   $: 20.00 MN
-  style: "text-align:right; right: 200px; top: 150px"
+  style: "text-align:right; right: 150px; top: 100px; width: 260px;"
 gringo:
   name: Gringo en Vacaciones
   description: Camarones en adobo de chiles rojos, medio picante
@@ -18,7 +18,7 @@ kraken:
   description: Pulpo Marinado en pesto mexicano
   $: 22.00 MN
   style: "left:100px; top:100px; text-align:left; width:170px"
-mixteco: 
+mixteco:
   name: Mixteco
   description: Camarones en crema mixteca
   $: 20.00 MN
@@ -32,7 +32,7 @@ poblano:
   name: Poblano
   description: Marlin ahumado en crema de chile poblano
   $: 20.00 MN
-  style: "right:100px; top:100px; text-align:right; color:#eee; width: 250px; text-shadow: 0 0 5px rgba(0,0,0,1)"
+  style: "right:100px; top:100px; text-align:right; color:#eee; width: 180px; text-shadow: 0 0 5px rgba(0,0,0,1)"
 portobello:
   name: Portobello
   description: Portobello con pesto mexicano
