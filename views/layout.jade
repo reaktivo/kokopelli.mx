@@ -29,28 +29,17 @@ html
       footer.center-block
         .left
           .location
-
-            h3 Centro
-            p
-              |Ave. Ocampo entre la 8va y 9na
-              br
-              |Tijuana, Baja California, México
-
-            //- h3 Playas
-            //- p
-            //-   |Ave. Ensenada entre Paseo De las Nubes y De la Lluvia
-            //-   br
-            //-   |Tijuana, Baja California, México
+            each location in locations
+              h3 #{location.name} — #{location.schedule}
+              p= location.location
 
         .right
-          p
-            | Abierto de Martes a Sábado
-            br
-            | 10:00AM a 4:20PM
           p Estamos en&nbsp;
             a(href="https://www.facebook.com/pages/Tacos-kokopelli/150243071740392") Facebook
-            | &nbsp;y&nbsp;
+            span &nbsp;y&nbsp;
             a(href="https://www.twitter.com/tkokopelli") Twitter
+          p Sitio desarrollado por&nbsp;
+            a(href="http://reaktivo.com") Reaktivo
 
 
     != js('app')

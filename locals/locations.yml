@@ -1,0 +1,16 @@
+-
+  name: Centro
+  map_id: 56ff2d2f-d4cb-4af7-a3ba-e40e59309f9b
+  schedule: Martes a Sábado 10:00 a 16:30
+  location: |
+    Ave. Ocampo entre la 8va y 9na
+    Tijuana, Baja California, México
+
+-
+  name: Zona Río
+  map_id: 487d0bd3-10d4-48ce-a5aa-2e2006ff44b9
+  schedule: Lunes a Sábado 9:00 a 18:00
+  location: |
+    Blvd. Sanchez Taboada y Misión Santo Tomás
+    Foodgarden – Distrito Gastronómico
+    Tijuana, Baja California, México
