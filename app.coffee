@@ -25,6 +25,7 @@ app.configure ->
   app.use app.router
   app.use assets()
   app.use express.static join __dirname, "assets"
+app.use express.favicon join(__dirname, "assets", "favicon.ico")
 
 load('locals').into(app)
 load('routes').into(app)
