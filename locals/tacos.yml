@@ -42,4 +42,4 @@ especial:
   name: Especial
   description: Cualquier taco puede convertirse en uno especial, rellenando un chile con un guisado
   $: 10.00 MN +
-  style: "left:100px; top:100px; text-align:left; color:#eee; width: 250px;"
+  style: "left:100px; top:100px; text-align:left; color:#eee; width: 250px; text-shadow: 0 0 5px rgba(0,0,0,1)"
