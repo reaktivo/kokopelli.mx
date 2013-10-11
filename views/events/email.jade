@@ -13,8 +13,9 @@ div(style="font-family:sans-serif")
     | Teléfono 2: #{info.tel2}
 
   h4 Localización
-  p 
+  p
     = info.location
+    br
     a(href="http://maps.google.com/maps?z=18&q=#{info.geolocation}") Ver en Mapa
 
   h4 Descripción de lugar
