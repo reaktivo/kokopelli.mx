@@ -1,8 +1,8 @@
 {each, flatten, pluck, where, map, groupBy, clone} = require 'underscore'
 
 to_email = 'tacos@kokopelli.mx'
-if process.env.EMAIL
-  to_email = process.env.EMAIL
+if process.env.NODE_ENV isnt 'production'
+  to_email = 'm@reaktivo.com'
 
 module.exports = (app) ->
 
@@ -46,6 +46,9 @@ module.exports = (app) ->
   app.post '/events', (req, res) ->
     locals = buildLocals req.body
     app.render 'events/email', locals, (err, html) ->
+      if process.env.NODE_ENV isnt 'production'
+        console.log(locals)
+        console.log(html)
       sendMail to_email, locals.info.email, html
       sendMail locals.info.email, to_email, html
       res.redirect "/events"
