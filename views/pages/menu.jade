@@ -3,7 +3,7 @@ extends ../layout
 block content
   .menu
     each taco, id in tacos
-      .taco(style="background-image:url(/tacos/#{id}.png)")
+      .taco(style="background-image:url(/tacos/#{id}.jpg)")
         .info(style=taco.style)
           h2= taco.name
           p.description= taco.description
