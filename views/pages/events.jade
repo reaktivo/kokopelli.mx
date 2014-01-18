@@ -67,7 +67,7 @@ block content
 
         .row
           label ¿Nos ayudas a ubicarlo en el mapa?
-          input(type="hidden", name="info[geolocation]")
+          input(type="hidden", id="geolocation", name="info[geolocation]")
           p.help Arrastra el marcador al lugar del evento.
           #location-map
 
@@ -129,7 +129,7 @@ block scripts
           draggable: true
           dragend: (e) ->
             geolocation = [e.latLng.lat(), e.latLng.lng()].join(",")
-            $("input[name=geolocation]").val(geolocation)
+            $("#geolocation").val(geolocation)
 
 
     do App.Events.init
