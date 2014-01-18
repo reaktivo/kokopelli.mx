@@ -7,7 +7,7 @@ if process.env.NODE_ENV isnt 'production'
 module.exports = (app) ->
 
   SendGrid = require('sendgrid').SendGrid
-  mailer = new SendGrid(app.locals.sendgrid.username, app.locals.sendgrid.password)
+  mailer = new SendGrid(process.env.SENDGRID_USERNAME, process.env.SENDGRID_PASSWORD)
 
   _items = flatten pluck(app.locals.events.categories, 'items'), true
   allItems = {}
@@ -22,12 +22,14 @@ module.exports = (app) ->
   app.get '/menu', (req, res) ->
     res.render 'pages/menu', title: 'Kokopelli'
 
-
   app.get '/location', (req, res) ->
     res.render 'pages/location', title: 'Kokopelli'
 
   app.get '/events', (req, res) ->
     res.render 'pages/events', title: 'Kokopelli'
+
+  app.get '/events/success', (req, res) ->
+    res.render 'pages/events_success', title: 'Kokopelli'
 
   buildLocals = (locals) ->
     locals = clone locals
@@ -51,7 +53,7 @@ module.exports = (app) ->
         console.log(html)
       sendMail to_email, locals.info.email, html
       sendMail locals.info.email, to_email, html
-      res.redirect "/events"
+      res.render "pages/events_success", title: 'Kokopelli'
 
 
 
