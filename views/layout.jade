@@ -5,7 +5,7 @@ html
     meta(charset="utf-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
     title= title
-    meta(name="viewport", content="width=device-width")
+    meta(name="viewport", content="width=device-width, user-scalable=no")
     != css('style')
     != js('vendor/modernizr-2.6.1.min')
     include opengraph
@@ -20,7 +20,7 @@ html
       nav
         ul
           li: a(href="/") Menú
-          li: a(href="/location") Encuéntranos
+          //li: a(href="/location") Encuéntranos
           li: a(href="/events") Eventos
     #main
 
