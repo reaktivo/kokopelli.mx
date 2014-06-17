@@ -25,6 +25,7 @@ app.use app.router
 app.use assets()
 app.use express.static join __dirname, "assets"
 
+app.locals.pretty = yes
 load('locals').into(app)
 load('routes').into(app)
 
